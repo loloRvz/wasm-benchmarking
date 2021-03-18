@@ -4,6 +4,8 @@
 #include "time.h"
 #include "errno.h"
 
+#define WARMUP 50
+
 //what this one does
 int mul_mod(int a, int b, int m) {
     int res = 0;
@@ -169,8 +171,13 @@ int main(int argc, char *argv[]){
 		printf("Incorrect input!\n");return 0;
 	}
 	
-	float start_time,end_time,time_elapsed;
+	//Warmup
+	for(int i=0; i<WARMUP; i++){
+		n_pi(WARMUP);
+	}
 	
+	//Run tests
+	float start_time,end_time,time_elapsed;
 	for(int i=1; i<n; i+=m){
 		start_time = (float)clock()/CLOCKS_PER_SEC*1000;
 		n_pi(i);
