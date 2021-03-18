@@ -16,7 +16,7 @@ step="$3"
 chown $USER data/gcc_out.txt data/wasm_out.txt data/aot_out.txt
 
 
-
+#plot
 gnuplot plot.p
 
 
