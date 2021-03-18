@@ -2,10 +2,10 @@
 
 set terminal png size 1000,700
 
-set output 'benchmark_graph.png'
+set output filename_str
 
-set title "Benchmark test: Runtime computing n-th digit of pi"
-set xlabel "N-digit of pi"
+set title title_str
+set xlabel xlabel_str
 set ylabel "Computing time [ms]"
 
 set key left box
