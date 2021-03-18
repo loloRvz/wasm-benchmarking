@@ -31,5 +31,5 @@ sudo bash ./benchmark.sh pi 100 1
 
 Which produces the following output:
 
-![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph.png)
+![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_pi.png)
 
