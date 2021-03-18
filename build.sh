@@ -5,7 +5,7 @@ prog_name="$1"
 #Building executables
 
 #gcc
-gcc -o tests/$prog_name tests/$prog_name.c -lm
+gcc -O2 -o tests/$prog_name tests/$prog_name.c -lm
 #wasm
 /opt/wasi-sdk/bin/clang -O3 -o tests/$prog_name.wasm tests/$prog_name.c
 #aot
