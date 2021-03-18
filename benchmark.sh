@@ -23,11 +23,15 @@ case $prog_name in
 		title_str="title_str='Benchmark: CPU-bound, Computing nth digit of pi'"
 		xlabel_str="xlabel_str='Nth digit of pi'"
 		;;
-	
-	io)
-		filename_str="filename_str='benchmark_graph_io.png'"
-		title_str="title_str='Benchmark: IO-bound, Accessing external files'"
-		xlabel_str="xlabel_str='# of access iterations'"
+	io_write)
+		filename_str="filename_str='benchmark_graph_io_write.png'"
+		title_str="title_str='Benchmark: IO-bound, Writing to external file repeatedly'"
+		xlabel_str="xlabel_str='# of iterations'"
+		;;
+	io_access)
+		filename_str="filename_str='benchmark_graph_io_access.png'"
+		title_str="title_str='Benchmark: IO-bound, Accessing external file repeatedly'"
+		xlabel_str="xlabel_str='# of iterations'"
 		;;
 	*)
 		

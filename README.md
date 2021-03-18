@@ -12,7 +12,10 @@ sudo bash ./build.sh <program_name>
 
 List of available programs:
 
-* ```pi``` : Computes the n-th digit of pi. For CPU-bound benchmarks.
+* ```pi``` : CPU-bound, Computes the n-th digit of pi.
+* ```io_write``` : IO-bound, Writing to an external file repeatedly
+* ```io_access``` : IO-bound, Accesses an external file repeatedly
+
 
 ## Running Benchmark
 

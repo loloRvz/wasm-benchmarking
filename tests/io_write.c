@@ -4,17 +4,21 @@
 #include "time.h"
 #include "errno.h"
 
+#define WARMUP 50
+
 void n_io(int n){
-	for(int i=0; i<n; i++){
-		FILE *f = fopen("./data/io_file.txt", "w");
-		if (f == NULL)
+	FILE *f = fopen("./data/io_file.txt", "w");
+	if (f == NULL)
 		{
 			printf("Error opening file!\n");
 			exit(1);
 		}
+		
+	for(int i=0; i<n; i++){
 		fprintf(f,"%d\n",n);
-		fclose(f);
 	}
+	
+	fclose(f);
 }
 
 
@@ -33,8 +37,13 @@ int main(int argc, char *argv[]){
 		printf("Incorrect input!\n");return 0;
 	}
 	
-	float start_time,end_time,time_elapsed;
+	//Warmup
+	for(int i=0; i<WARMUP; i++){
+		n_io(WARMUP);
+	}
 	
+	//Run test
+	float start_time,end_time,time_elapsed;
 	for(int i=1; i<n; i+=m){
 		start_time = (float)clock()/CLOCKS_PER_SEC*1000;
 		n_io(i);
