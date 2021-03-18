@@ -10,6 +10,6 @@ set ylabel "Computing time [ms]"
 
 set key left box
 
-plot "gcc_out.txt" with lines title "Native", \
-     "wasm_out.txt" with lines title ".wasm", \
-     "aot_out.txt" with lines title ".aot"
+plot "data/gcc_out.txt" with lines title "Native", \
+     "data/wasm_out.txt" with lines title ".wasm", \
+     "data/aot_out.txt" with lines title ".aot"
