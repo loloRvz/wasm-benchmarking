@@ -7,10 +7,10 @@ This repo compares the performance of native C compiled programs to their WebAss
 
 List of available tests:
 
-* ```pi``` :            CPU-bound, Computes the n-th digit of pi.
-* ```io_write``` :      IO-bound, Writing to an external file repeatedly
-* ```io_access``` :     IO-bound, Accesses an external file repeatedly
-* ```ram``` :           Memory-bound, Accesses an external file repeatedly
+* ```pi``` :            CPU-bound, computes the n-th digit of pi.
+* ```io_write``` :      IO-bound, writing to an external file repeatedly.
+* ```io_access``` :     IO-bound, accesses an external file repeatedly.
+* ```ram``` :           Memory-bound, iterates through a linked list of variable length.
 
 
 ## Instructions
