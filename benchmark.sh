@@ -20,21 +20,26 @@ chown $USER data/gcc_out.txt data/wasm_out.txt data/aot_out.txt
 case $prog_name in
 	pi)
 		filename_str="filename_str='benchmark_graph_pi.png'"
-		title_str="title_str='Benchmark: CPU-bound, Computing nth digit of pi'"
+		title_str="title_str='Benchmark: CPU-bound, Computing nth Digit of Pi'"
 		xlabel_str="xlabel_str='Nth digit of pi'"
 		;;
 	io_write)
 		filename_str="filename_str='benchmark_graph_io_write.png'"
-		title_str="title_str='Benchmark: IO-bound, Writing to external file repeatedly'"
+		title_str="title_str='Benchmark: IO-bound, Writing to External File Repeatedly'"
 		xlabel_str="xlabel_str='# of iterations'"
 		;;
 	io_access)
 		filename_str="filename_str='benchmark_graph_io_access.png'"
-		title_str="title_str='Benchmark: IO-bound, Accessing external file repeatedly'"
+		title_str="title_str='Benchmark: IO-bound, Accessing External File Repeatedly'"
 		xlabel_str="xlabel_str='# of iterations'"
 		;;
+	ram)
+		filename_str="filename_str='benchmark_graph_ram.png'"
+		title_str="title_str='Benchmark: Memory-bound, Random Memory Access"
+		xlabel_str="xlabel_str='Size of linked list [B]'"
+		;;
 	*)
-		
+	
 		;;
 esac
 
