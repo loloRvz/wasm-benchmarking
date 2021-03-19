@@ -6,10 +6,11 @@ set output filename_str
 
 set title title_str
 set xlabel xlabel_str
-set ylabel "Computing time [ms]"
+set ylabel ylabel_str
 
 set key left box
 
-plot "data/gcc_out.txt" with lines title "Native", \
-     "data/wasm_out.txt" with lines title ".wasm", \
-     "data/aot_out.txt" with lines title ".aot"
+plot "data/out_gcc.txt" with lines title "gcc native", \
+	 "data/out_clang.txt" with lines title "clang native", \
+     "data/out_wasm.txt" with lines title ".wasm wamr", \
+     "data/out_aot.txt" with lines title ".aot wamr"

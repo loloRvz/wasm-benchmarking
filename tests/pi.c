@@ -157,19 +157,10 @@ int n_pi(int n) {
 
 
 int main(int argc, char *argv[]){
-	//First argument: ceiling, second argument:increment
+	//Parameters
+	int ceil = 100;
+	int step = 1;
 	
-	//Variables
-	char *p;
-	errno = 0;
-	int n = strtol(argv[1], &p, 10);
-	int m = strtol(argv[2], &p, 10);
-
-	//Check input
-	if(argc != 3){printf("Incorrect input!\n");return 0;}
-	if(errno != 0 || *p != '\0'){
-		printf("Incorrect input!\n");return 0;
-	}
 	
 	//Warmup
 	for(int i=0; i<WARMUP; i++){
@@ -178,7 +169,7 @@ int main(int argc, char *argv[]){
 	
 	//Run tests
 	float start_time,end_time,time_elapsed;
-	for(int i=1; i<n; i+=m){
+	for(int i=1; i<ceil; i+=step){
 		start_time = (float)clock()/CLOCKS_PER_SEC*1000;
 		n_pi(i);
 		end_time = (float)clock()/CLOCKS_PER_SEC*1000;

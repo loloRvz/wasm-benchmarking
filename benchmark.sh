@@ -1,51 +1,70 @@
 #!/bin/bash
 
 prog_name="$1"
-ceil="$2"
-step="$3"
 
-#Run tests
+##Run tests
 
-#native
-./tests/$prog_name $ceil $step > data/gcc_out.txt
+#native gcc
+./tests/$prog_name \
+	> data/out_gcc.txt
+	
+#native clang
+./tests/$prog_name.x \
+	> data/out_clang.txt
+	
 #wasm
-/home/lolo/bin/iwasm --dir=. tests/$prog_name.wasm $ceil $step > data/wasm_out.txt
+/home/lolo/bin/iwasm --dir=. tests/$prog_name.wasm \
+	> data/out_wasm.txt
+	
 #aot
-/home/lolo/bin/iwasm --dir=. tests/$prog_name.aot $ceil $step > data/aot_out.txt
+/home/lolo/bin/iwasm --dir=. tests/$prog_name.aot \
+	> data/out_aot.txt
+	
+	
 #Change permissions
-chown $USER data/gcc_out.txt data/wasm_out.txt data/aot_out.txt
+chown $USER data/out_gcc.txt \
+			data/out_clang.txt \
+			data/out_wasm.txt \
+			data/out_aot.txt
 
 
-#Set plot description according to test being run
+#Plot according to test being run
 case $prog_name in
 	pi)
-		filename_str="filename_str='benchmark_graph_pi.png'"
-		title_str="title_str='Benchmark: CPU-bound, Computing nth Digit of Pi'"
-		xlabel_str="xlabel_str='Nth digit of pi'"
+		gnuplot -e "filename_str = 'benchmark_graph_pi.png'" \
+				-e "title_str    = 'Benchmark: CPU-bound, Computing nth Digit of Pi'" \
+				-e "xlabel_str   = 'Nth digit of pi'" \
+				-e "ylabel_str   = 'Computing time [ms]'" \
+				plot.p
 		;;
+		
 	io_write)
-		filename_str="filename_str='benchmark_graph_io_write.png'"
-		title_str="title_str='Benchmark: IO-bound, Writing to External File Repeatedly'"
-		xlabel_str="xlabel_str='# of iterations'"
+		gnuplot -e "filename_str = 'benchmark_graph_io_write.png'" \
+				-e "title_str    = 'Benchmark: IO-bound, Writing to External File Repeatedly'" \
+				-e "xlabel_str   = '# of iterations'" \
+				-e "ylabel_str   = 'Computing time [ms]'" \
+				plot.p
 		;;
+		
 	io_access)
-		filename_str="filename_str='benchmark_graph_io_access.png'"
-		title_str="title_str='Benchmark: IO-bound, Accessing External File Repeatedly'"
-		xlabel_str="xlabel_str='# of iterations'"
+		gnuplot -e "filename_str = 'benchmark_graph_io_access.png'" \
+				-e "title_str    = 'Benchmark: IO-bound, Accessing External File Repeatedly'" \
+				-e "xlabel_str   = '# of iterations'" \
+				-e "ylabel_str   = 'Computing time [ms]'" \
+				plot.p
 		;;
+		
 	ram)
-		filename_str="filename_str='benchmark_graph_ram.png'"
-		title_str="title_str='Benchmark: Memory-bound, Random Memory Access Time / Element"
-		xlabel_str="xlabel_str='Size of linked list [B]'"
-		;;
-	*)
-	
+		gnuplot -e "filename_str = 'benchmark_graph_ram.png'" \
+				-e "title_str    = 'Benchmark: Memory-bound, Random Memory Access Time / Element" \
+				-e "xlabel_str   = 'Size of linked list [B]'" \
+				-e "ylabel_str   = 'Time/element [ns]'" \
+				-e "set logscale x 2" \
+				plot.p
 		;;
 esac
 
 
-#plot
-gnuplot -e "${filename_str}" -e "${title_str}" -e "${xlabel_str}" plot.p
 
 
 
