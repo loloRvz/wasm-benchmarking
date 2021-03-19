@@ -71,7 +71,7 @@ double bench(Int N, Int iters) {
 	Int dur = clock() - start;
 	double ms = 1e3 * dur / CLOCKS_PER_SEC;
 
-	return ms / (N*iters);
+	return ms / (iters);
 }
 
 
@@ -103,7 +103,7 @@ int main(int argc, const char * argv[]) {
 		//Int reps = elemsPerMeasure / N;
 		Int reps = (Int)floor(1e9 / pow(N, 1.5) + 0.5);
 		if (reps<1) reps = 1;
-		double ans = bench(N,reps);
+		double ans = bench(N,1);
 		printf("%lu   %f   # (N=%lu, reps=%lu) %lu/%lu\n",
 			(long unsigned int) N*sizeof(Node), 
 			ans, 
