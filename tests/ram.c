@@ -88,14 +88,13 @@ int main(int argc, const char * argv[]) {
 	Int max = stopsPerFactor * maxElemsFactor;
 
 	//Warmup
-	for (Int i; i<WARMUP; i++) {
+	for(int i = 0; i<WARMUP; i++) {
 		Int N = (Int)floor(pow(2.0, (double)i / stopsPerFactor) + 0.5);
 		//Int reps = elemsPerMeasure / N;
 		Int reps = (Int)floor(1e9 / pow(N, 1.5) + 0.5);
 		if (reps<1) reps = 1;
 		double ans = bench(N, reps);
 	}
-
 
 	//Test
 	for (Int ei=min; ei<=max; ++ei) {

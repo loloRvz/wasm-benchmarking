@@ -35,7 +35,7 @@ case $prog_name in
 		;;
 	ram)
 		filename_str="filename_str='benchmark_graph_ram.png'"
-		title_str="title_str='Benchmark: Memory-bound, Random Memory Access"
+		title_str="title_str='Benchmark: Memory-bound, Random Memory Access Time / Element"
 		xlabel_str="xlabel_str='Size of linked list [B]'"
 		;;
 	*)
