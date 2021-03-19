@@ -2,7 +2,7 @@
 
 ## Description
 
-This repo tests the performance of WebAssembly to native C algorithms.
+This repo compares the performance of native C compiled programs to their WebAssembly binaries running in WAMR.
 
 
 List of available tests:
@@ -14,18 +14,18 @@ List of available tests:
 
 
 ## Instructions
-###Build the executables:
+### Build the executables:
 
 ```
 sudo bash ./build.sh <program_name>
 ```
 
-###Run the benchmark:
+### Run the benchmark:
 
 ```
 sudo bash ./benchmark <program_name>
 ```
-###Example
+### Example
 
 The following example is a CPU-bound benchmark test, which computes the n-digit of pi:
 
@@ -34,7 +34,7 @@ sudo bash ./build.sh pi
 sudo bash ./benchmark.sh pi
 ```
 
-###Results
+## Results
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_pi.png)
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_io_access.png)
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_io_write.png)
