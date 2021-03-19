@@ -35,9 +35,13 @@ sudo bash ./benchmark.sh pi
 ```
 
 ## Results
+### pi
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_pi.png)
+### io_write
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_io_access.png)
+### io_access
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_io_write.png)
+### ram
 ![alt text](https://github.com/loloRvz/wasm-benchmarking/blob/main/benchmark_graph_ram.png)
 
 
