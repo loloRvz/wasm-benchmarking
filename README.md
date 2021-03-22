@@ -18,8 +18,7 @@ List of available tests:
 ### Prerequisites
 
 * [WebAssembly Micro Runtime](https://github.com/bytecodealliance/wasm-micro-runtime) with wamrc and iwasm in your path and wasi-sdk in /opt
-* clang: '''sudo apt install clang'''
-* 
+* clang: ```sudo apt install clang```
 
 ### Build the executables:
 
