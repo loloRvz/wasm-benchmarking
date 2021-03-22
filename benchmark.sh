@@ -4,8 +4,6 @@ prog_name="$1"
 
 ##Run tests
 
-echo $PATH
-
 #native gcc
 ./tests/$prog_name \
 	> data/out_gcc.txt
@@ -61,7 +59,6 @@ case $prog_name in
 				-e "title_str    = 'Benchmark: Memory-bound, Random Memory Access Time / Element" \
 				-e "xlabel_str   = 'Size of linked list [Bytes]'" \
 				-e "ylabel_str   = 'Time/element [ns]'" \
-				-e "set logscale x 2" \
 				plot.p
 		;;
 esac

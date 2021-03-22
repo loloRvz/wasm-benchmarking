@@ -76,14 +76,11 @@ double bench(Int N, Int iters) {
 
 
 int main(int argc, const char * argv[]) {
-	// Outputs data in gnuplot friendly .data format
-	printf("#bytes    ns/elem\n");
-
-	Int stopsPerFactor = 1; // For every power of 2, how many measurements do we do?
-	Int minElemensFactor = 6;  // First measurement is 2^this number of elements.
+	//Parameters
+	Int stopsPerFactor = 6; // For every power of 2, how many measurements do we do?
+	Int minElemensFactor = 12;  // First measurement is 2^this number of elements.
 	Int maxElemsFactor = 20; // Last measurement is 2^this number of elements. 30 == 16GB of memory
-	//Int elemsPerMeasure = Int(1) << 28; // measure enough times to process this many elements (to get a good average)
-
+	
 	Int min = stopsPerFactor * minElemensFactor;
 	Int max = stopsPerFactor * maxElemsFactor;
 
